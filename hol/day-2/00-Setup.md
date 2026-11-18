@@ -40,13 +40,13 @@ Some exercises need more access than ordinary workflow editing. Check these with
 | 8: Dependency inventory | Repository administrator access if the dependency graph needs to be enabled. |
 | 9: Attestations | Artifact-attestation support for your repository. Private/internal repositories need an eligible Enterprise Cloud plan. Staging runs locally inside a hosted job. |
 
-Lab 6's rules apply only to your practice repository and its default branch. Repository administration alone is not enough to create the organization-level rule. See [Lab 6 setup](06-Gates.md#c-prepare-the-centrally-required-workflow-ghec-only) and the [feature availability reference](../REFERENCES.md#product-and-version-gates-from-githubdocs).
+Lab 6's rules apply only to your practice repository and its default branch. Repository administration alone is not enough to create the organization-level rule. See [Lab 6 setup](06-Gates.md#c-prepare-the-centrally-required-workflow-ghec-only) and the [feature availability reference](../../REFERENCES.md#product-and-version-gates-from-githubdocs).
 
 Labs 6 and 9 do not need a real cloud deployment target.
 
 ## Prepare the workspace
 
-The workflows and slide examples use the full release tags recorded in [the action version lookup](../ACTION-VERSIONS.md), including checkout `v7.0.1` and dependency submission `v2.0.2`. A tag is easy to read but can be moved to another commit, so you will also lock the exact versions with an execution lockfile.
+The workflows and slide examples use the full release tags recorded in [the action version lookup](../../ACTION-VERSIONS.md), including checkout `v7.0.1` and dependency submission `v2.0.2`. A tag is easy to read but can be moved to another commit, so you will also lock the exact versions with an execution lockfile.
 
 1. Locate `app/package.json`, `app/package-lock.json`, `app/src/server.js`, and `app/test/server.test.js`. The application supports `npm ci`, `npm test`, `npm run lint`, and `npm run build` from `app`. Review the scripts before running them. [npm ci](https://docs.npmjs.com/cli/v11/commands/npm-ci/)
 

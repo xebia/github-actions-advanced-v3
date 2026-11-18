@@ -18,9 +18,9 @@ Cache a substantial download without a setup action's built-in caching. Populate
 
 The [CodeQL bundle v2.27.4 release](https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.27.4) supplies `codeql-bundle-linux64.tar.zst`: **559,484,083 bytes (about 559 MB / 534 MiB)**, with published SHA-256. This is a CLI/query bundle, not a single query pack. We download it directly, not through `codeql-action/init` or another caching installer.
 
-[`examples/codeql-bundle.json`](../examples/codeql-bundle.json) records the reviewed release, asset, byte size, checksum and a descriptive `note`. This is separate from `actions.lock`, which controls the versions of actions your workflow executes.
+[`examples/codeql-bundle.json`](../../examples/codeql-bundle.json) records the reviewed release, asset, byte size, checksum and a descriptive `note`. This is separate from `actions.lock`, which controls the versions of actions your workflow executes.
 
-The supplied [`tools/prepare-codeql.mjs`](../tools/prepare-codeql.mjs) downloads a missing archive into `.cache/codeql-downloads` and checks its size and SHA-256 on every run. A corrupt cached archive causes an error rather than an automatic replacement download.
+The supplied [`tools/prepare-codeql.mjs`](../../tools/prepare-codeql.mjs) downloads a missing archive into `.cache/codeql-downloads` and checks its size and SHA-256 on every run. A corrupt cached archive causes an error rather than an automatic replacement download.
 
 The workflow extracts the verified archive into a new temporary directory and runs that copy's `codeql version` command. It does not use a CodeQL installation already on the runner. You still need to add the Actions caching steps.
 
@@ -81,7 +81,7 @@ The helper looks for the version named in the manifest, not just any restored ar
 <details>
 <summary>Solution and trust boundary</summary>
 
-Compare your implementation with the [main-branch writer](../solutions/workflows/02-cache-main.yml) and [PR restore workflow](../solutions/workflows/02-cache-pr.yml).
+Compare your implementation with the [main-branch writer](../../solutions/workflows/02-cache-main.yml) and [PR restore workflow](../../solutions/workflows/02-cache-pr.yml).
 
 The primary key combines OS, architecture, `codeql`, your cache version label and `hashFiles('examples/codeql-bundle.json')`. The workflows cache only `.cache/codeql-downloads`.
 

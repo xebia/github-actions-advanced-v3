@@ -39,7 +39,7 @@ Compare the configured working directory to the path the failing command expects
 
 The starter looks for `app/src/serve.js`, but the file is named `app/src/server.js`. A focused directory listing reveals the missing `r`.
 
-The [completed example](../solutions/workflows/07-debug.yml) shows that listing in a log group, adds a message controlled by `runner.debug` and checks the correct path.
+The [completed example](../../solutions/workflows/07-debug.yml) shows that listing in a log group, adds a message controlled by `runner.debug` and checks the correct path.
 
 Enabling debug logging gives you more information about the failing revision. It does not change the path in that revision. Commit the fix and start a new run to test the corrected code.
 

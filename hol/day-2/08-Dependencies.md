@@ -43,7 +43,7 @@ An inventory lists what its detector found. It may not include every file you sh
 <details>
 <summary>Solution</summary>
 
-The [completed workflow](../solutions/workflows/08-dependencies.yml) uses `jessehouwing/actions-dependency-submission@v2.0.2` to read `.github/workflows/actions.lock` and submit its dependencies.
+The [completed workflow](../../solutions/workflows/08-dependencies.yml) uses `jessehouwing/actions-dependency-submission@v2.0.2` to read `.github/workflows/actions.lock` and submit its dependencies.
 
 Setting `actions-lock-version: v0.4.1` requires lock verification rather than continuing with an unverified-lock warning. The action installs the verifier extension if needed, so GitHub CLI must be available. Generate and review your execution lock before running the workflow.
 

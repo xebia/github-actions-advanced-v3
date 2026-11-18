@@ -69,7 +69,7 @@ Without a `types` filter, `issues` selects all supported issue activities. `pull
 
 For a workflow that skips draft PRs, consider `ready_for_review` as well as later code pushes. A change to a PR's base branch can arrive as `edited` and may also need validation.
 
-Compare the [broad observer](../solutions/workflows/04-issues-all.yml) with the [filtered observer](../solutions/workflows/04-issues-filtered.yml).
+Compare the [broad observer](../../solutions/workflows/04-issues-all.yml) with the [filtered observer](../../solutions/workflows/04-issues-filtered.yml).
 </details>
 
 ## Part A continued: Select checks (discussion)
@@ -78,7 +78,7 @@ Compare the [broad observer](../solutions/workflows/04-issues-all.yml) with the 
 
 | Changed input | Category |
 | --- | --- |
-| `hol/01-Measure.md` | Documentation |
+| `hol/day-2/01-Measure.md` | Documentation |
 | `app/src/server.js` | Application code |
 | `app/package-lock.json` or `app/package.json` | Shared dependency inputs |
 | `.github/workflows/04-parallel.yml` | Workflow definition |
@@ -110,7 +110,7 @@ The merge queue tests a new combined revision. Calculate its changes against its
 
 The app's tests and build each include the same 20-second artificial wait used in Lab 1. Keep them unchanged across variants. Lint is still fast, so running lint beside tests may save little time; repeated setup on separate runners can outweigh that saving. The waits simulate slow work, not CPU load.
 
-6. Copy the [`04-parallel.yml` starter](../examples/workflows/04-parallel.yml) and keep its sequential baseline unchanged.
+6. Copy the [`04-parallel.yml` starter](../../examples/workflows/04-parallel.yml) and keep its sequential baseline unchanged.
 
    Complete the shared-runner TODO with a [`parallel`](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsparallel) group that contains a lint step and a test step. The step after the group starts only when every step in the group has finished, so the existing build step can stay where it is. `parallel` is shorthand for steps with [`background: true`](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepsbackground) followed by one [`wait`](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#jobsjob_idstepswait).
 
@@ -122,7 +122,7 @@ The app's tests and build each include the same 20-second artificial wait used i
 
 7. Run it again with `fail-test` checked. Expect the workflow to fail and both dependent builds to skip.
 
-   Now copy the [timeout starter](../examples/workflows/04-timeout.yml). Replace its error-printing placeholder with a command that waits for two minutes. Add a one-minute step `timeout-minutes` setting at the same YAML level as `run`. Keep the job's three-minute limit unchanged.
+   Now copy the [timeout starter](../../examples/workflows/04-timeout.yml). Replace its error-printing placeholder with a command that waits for two minutes. Add a one-minute step `timeout-minutes` setting at the same YAML level as `run`. Keep the job's three-minute limit unchanged.
 
    Regenerate the lockfile with `gh actions-lock`, then review the timeout workflow and lockfile. Commit both and push the commit to your default branch. In **Actions**, select the timeout workflow and choose **Run workflow**.
 
@@ -135,7 +135,7 @@ The app's tests and build each include the same 20-second artificial wait used i
 <details>
 <summary>Solution / checkpoints</summary>
 
-Compare your workflows with the [parallel example](../solutions/workflows/04-parallel.yml) and [timeout example](../solutions/workflows/04-timeout.yml).
+Compare your workflows with the [parallel example](../../solutions/workflows/04-parallel.yml) and [timeout example](../../solutions/workflows/04-timeout.yml).
 
 In the parallel example, lint and tests can run at the same time because neither needs the other's output. The build waits for both. When `fail-test` is true, the test branch fails after its real tests, and the dependent build does not run.
 

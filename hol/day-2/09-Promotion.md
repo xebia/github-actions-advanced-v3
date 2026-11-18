@@ -16,7 +16,7 @@ Verify that the archive is exactly the file that was attested (its *subject*, id
 
    Complete the build TODOs: generate an npm SBOM for `app/dist`, save it outside that directory, and attest both build provenance and the SBOM for the same `application.tgz`. Include the SBOM in the uploaded artifact.
 
-   Add only the build-job permissions required by the attestation action. Create the course `lab-release` environment, generate and review the lockfile, then commit and push to your default branch. [Attestation permissions and inputs](https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations), [action versions](../ACTION-VERSIONS.md), [Lab 8 inventory](08-Dependencies.md)
+   Add only the build-job permissions required by the attestation action. Create the course `lab-release` environment, generate and review the lockfile, then commit and push to your default branch. [Attestation permissions and inputs](https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations), [action versions](../../ACTION-VERSIONS.md), [Lab 8 inventory](08-Dependencies.md)
 
    The remaining TODOs cover verification and negative tests; tasks 3 and 4 explain them. Your first run will fail at a placeholder until you implement them; replace the placeholders with checks rather than simply removing the errors.
 
@@ -53,7 +53,7 @@ An attestation from a different builder can have a valid signature and still be 
 <details>
 <summary>Solution</summary>
 
-The [completed workflow](../solutions/workflows/09-release.yml) builds `application.tgz` once and uses `actions/attest@v4.2.2` to record two statements about it: how it was built and which npm components it contains.
+The [completed workflow](../../solutions/workflows/09-release.yml) builds `application.tgz` once and uses `actions/attest@v4.2.2` to record two statements about it: how it was built and which npm components it contains.
 
 The build job has `contents: read`, `id-token: write` and `attestations: write`. Those permissions let it read the code, obtain an identity token and create attestations. They are not granted to every job.
 

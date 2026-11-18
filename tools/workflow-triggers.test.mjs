@@ -17,7 +17,7 @@ test('workflows and teaching examples match the dated latest-release lookup', ()
   );
   assert.equal(versions.size, 9);
   const seen = new Set();
-  for (const folder of ['examples/workflows/', 'solutions/workflows/', 'slides/', 'hol/']) {
+  for (const folder of ['examples/workflows/', 'solutions/workflows/', 'slides/', 'hol/day-2/']) {
     const url = new URL(`../${folder}`, import.meta.url);
     for (const name of readdirSync(url).filter(name => /\.(?:yml|yaml|md)$/.test(name))) {
       const text = readFileSync(new URL(name, url), 'utf8');
@@ -65,7 +65,7 @@ test('baseline always downloads into a fresh temporary directory and runs the ve
 
 test('completed image builder installs, seeds and uninstalls the pinned archive-cache extension', () => {
   const text = workflow('03-build-prewarm.yml', solutionDirectory);
-  const lab = readFileSync(new URL('../hol/03-Prewarm.md', import.meta.url), 'utf8');
+  const lab = readFileSync(new URL('../hol/day-2/03-Prewarm.md', import.meta.url), 'utf8');
   const commands = [
     'gh extension install jessehouwing/gh-actions-archive-cache --pin v0.0.2',
     'gh actions-archive-cache download "tj-actions/changed-files@$ACTION_SHA"',
@@ -135,7 +135,7 @@ test('stack cancellation allows the documented 150-second window in both workflo
     assert.match(text, /sleep "\$DELAY_SECONDS"/);
     assert.match(text, /^    timeout-minutes: 10$/m);
   }
-  const lab = readFileSync(new URL('../hol/05-Stacks-and-queue.md', import.meta.url), 'utf8');
+  const lab = readFileSync(new URL('../hol/day-2/05-Stacks-and-queue.md', import.meta.url), 'utf8');
   assert.match(lab, /`LAB_STACK_DELAY_SECONDS` to `150`/);
   assert.match(lab, /add one harmless YAML comment/);
   assert.match(lab, /add a second harmless YAML comment/);
@@ -146,19 +146,19 @@ test('stack cancellation allows the documented 150-second window in both workflo
 });
 
 test('stack teaching uses GitHub bottom/top terminology consistently', () => {
-  for (const name of ['hol/05-Stacks-and-queue.md', 'CLASS-OUTLINE.md', 'slides/03-policy.md']) {
+  for (const name of ['hol/day-2/05-Stacks-and-queue.md', 'CLASS-OUTLINE.md', 'slides/03-policy.md']) {
     const text = readFileSync(new URL(`../${name}`, import.meta.url), 'utf8');
     assert.doesNotMatch(text, /\b(?:first|second)[ -]PR\b|lab-05-(?:first|second)\b/i, name);
     assert.match(text, /bottom PR/i, name);
     assert.match(text, /top PR/i, name);
   }
-  const lab = readFileSync(new URL('../hol/05-Stacks-and-queue.md', import.meta.url), 'utf8');
+  const lab = readFileSync(new URL('../hol/day-2/05-Stacks-and-queue.md', import.meta.url), 'utf8');
   assert.match(lab, /`lab-05-bottom` from `main`/);
   assert.match(lab, /`lab-05-top` from `lab-05-bottom`/);
 });
 
 test('managed-account and ghe.com setup require organization-owned lab repositories', () => {
-  const setup = readFileSync(new URL('../hol/00-Setup.md', import.meta.url), 'utf8');
+  const setup = readFileSync(new URL('../hol/day-2/00-Setup.md', import.meta.url), 'utf8');
   for (const section of ['With an Enterprise Managed User account', 'On a `ghe.com` host']) {
     const text = setup.split(`**${section}:**`)[1]?.split(/\r?\n\d\. /)[0];
     assert.ok(text, section);
@@ -169,7 +169,7 @@ test('managed-account and ghe.com setup require organization-owned lab repositor
 });
 
 test('participant and slide fallbacks do not assume recordings exist', () => {
-  for (const folder of ['hol/', 'slides/']) {
+  for (const folder of ['hol/day-2/', 'slides/']) {
     const url = new URL(`../${folder}`, import.meta.url);
     for (const name of readdirSync(url).filter(name => name.endsWith('.md'))) {
       const text = readFileSync(new URL(name, url), 'utf8');
@@ -179,7 +179,7 @@ test('participant and slide fallbacks do not assume recordings exist', () => {
 });
 
 test('gate lab runs a temporary PR before selecting required checks and uses ruleset names', () => {
-  const lab = readFileSync(new URL('../hol/06-Gates.md', import.meta.url), 'utf8');
+  const lab = readFileSync(new URL('../hol/day-2/06-Gates.md', import.meta.url), 'utf8');
   const createPr = lab.indexOf('Create branch `lab-06-gates`');
   const selectCheck = lab.indexOf('In the check selector, search for `required`');
   assert.ok(createPr >= 0 && selectCheck > createPr);
@@ -291,13 +291,13 @@ test('timeout starter explains the learner action and distinguishes a timeout fr
 });
 
 test('lab solution links select completed references only inside collapsed solutions', () => {
-  const labs = new URL('../hol/', import.meta.url);
+  const labs = new URL('../hol/day-2/', import.meta.url);
   for (const name of readdirSync(labs).filter(name => name.endsWith('.md'))) {
     const text = readFileSync(new URL(name, labs), 'utf8');
     let details = false;
     for (const line of text.split(/\r?\n/)) {
       if (line.includes('<details>')) details = true;
-      if (/\]\(\.\.\/solutions\/workflows\//.test(line)) assert.ok(details, name);
+      if (/\]\(\.\.\/\.\.\/solutions\/workflows\//.test(line)) assert.ok(details, name);
       if (line.includes('</details>')) details = false;
     }
   }

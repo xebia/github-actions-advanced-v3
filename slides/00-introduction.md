@@ -3,7 +3,7 @@
 - Build on what you learned in Actions Fundamentals
 - Use your own lab repository throughout the day
 
-<!-- notes: Timing module 1, opening 0-2 min. Welcome the group and introduce the course question. This opening deck shares the existing 0-10 minute introduction with the first module; it does not add time to the day. Confirm participants know where to find hol/00-Setup.md and their own lab repository. -->
+<!-- notes: Timing module 1, opening 0-2 min. Welcome the group and introduce the course question. This opening deck shares the existing 0-10 minute introduction with the first module; it does not add time to the day. Confirm participants know where to find hol/day-2/00-Setup.md and their own lab repository. -->
 
 ---
 
@@ -35,4 +35,4 @@
 - Some features may be demonstrated by the trainer
 - Leave time to stop workflows and remove paid lab resources
 
-<!-- notes: Timing module 1, opening 6-8 min. Point to hol/00-Setup.md for account/host guidance and hol/10-Cleanup.md for the closing checklist. Managed accounts and ghe.com require organization-owned lab repositories. No participant should buy capacity or broaden organization permissions for the class. Move to module 1 for the remaining opening fundamentals recap at minutes 8-10. -->
+<!-- notes: Timing module 1, opening 6-8 min. Point to hol/day-2/00-Setup.md for account/host guidance and hol/day-2/10-Cleanup.md for the closing checklist. Managed accounts and ghe.com require organization-owned lab repositories. No participant should buy capacity or broaden organization permissions for the class. Move to module 1 for the remaining opening fundamentals recap at minutes 8-10. -->

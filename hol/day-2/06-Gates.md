@@ -36,7 +36,7 @@ Configure the rule that requires a successful deployment to `lab-staging`, then 
 
 4. **Run the workflow before selecting its check in a rule.** GitHub's required-check selector offers checks that have run recently in this repository. A newly added workflow's check will not appear until it has run at least once.
 
-   Create branch `lab-06-gates` from your default branch. Add a harmless comment to `hol/06-Gates.md`, commit and push it, then open a temporary PR targeting your default branch. Use a short title, such as `Lab 6 gate experiments`. Keep this PR open for the tasks below; do not merge it.
+   Create branch `lab-06-gates` from your default branch. Add a harmless comment to `hol/day-2/06-Gates.md`, commit and push it, then open a temporary PR targeting your default branch. Use a short title, such as `Lab 6 gate experiments`. Keep this PR open for the tasks below; do not merge it.
 
    In the PR's **Checks** tab, open **Lab 06 explicit required gate** and wait for its `required` job to finish successfully. For this documentation-only change, `impact` and `required` should pass and `application` should skip.
 
@@ -99,7 +99,7 @@ Existing organization or enterprise rules still apply. Your new rule cannot weak
 
 | Test case | Change on your `lab-06-gates` branch | Expected results |
 | --- | --- | --- |
-| Docs only | Harmless comment in `hol/06-Gates.md` | Detection success, application skipped, required success |
+| Docs only | Harmless comment in `hol/day-2/06-Gates.md` | Detection success, application skipped, required success |
 | Application | Harmless comment in `app/src/server.js` | Detection, application and required success |
 | Shared input only | Remove the application comment, add a harmless YAML comment to your installed `.github/workflows/06-gates.yml` | Detection, application and required success |
 | Failed detection | On `lab-06-gates` only, temporarily replace the detector's `base_sha` expression with the literal `0000000000000000000000000000000000000000` (40 zeros). Leave `fail_on_initial_diff_error: 'true'` in place | Detection failure, application skipped, required failure |
@@ -144,7 +144,7 @@ A skipped job has a recorded result. A workflow that never started may leave a r
 <details>
 <summary>Solution</summary>
 
-Compare your implementations with the [final gate](../solutions/workflows/06-gates.yml), [local staging workflow](../solutions/workflows/06-staging.yml) and [central title policy](../solutions/workflows/06-central-required.yml).
+Compare your implementations with the [final gate](../../solutions/workflows/06-gates.yml), [local staging workflow](../../solutions/workflows/06-staging.yml) and [central title policy](../../solutions/workflows/06-central-required.yml).
 
 ### The final gate checks why application work ran or skipped
 

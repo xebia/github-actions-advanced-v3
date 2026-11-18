@@ -9,13 +9,13 @@
 ---
 
 # Before you leave: clean up your labs
-- Open hol/10-Cleanup.md and check back on your Lab 3 image
+- Open hol/day-2/10-Cleanup.md and check back on your Lab 3 image
 - Cancel unneeded runs and remove practice PRs from the merge queue
 - Remove lab rules before disabling the workflows they require
 - Close practice PRs and issues; remove temporary branches and environments
 - Stop local servers and arrange removal of temporary access
 
-<!-- notes: Timing module 4, closing 99-101 min, together with the next slide. Give participants time to open the cleanup checklist. Remove only rules and resources created for the labs; shared protections stay unchanged. Required checks/workflows must not be left blocking a repository after their workflows are disabled. Keep useful notes or run links, and follow the lab's guidance for caches and artifacts. Docs: hol/10-Cleanup.md. -->
+<!-- notes: Timing module 4, closing 99-101 min, together with the next slide. Give participants time to open the cleanup checklist. Remove only rules and resources created for the labs; shared protections stay unchanged. Required checks/workflows must not be left blocking a repository after their workflows are disabled. Keep useful notes or run links, and follow the lab's guidance for caches and artifacts. Docs: hol/day-2/10-Cleanup.md. -->
 
 ---
 
@@ -25,7 +25,7 @@
 - Stopping a runner may not stop storage charges
 - If cleanup must wait, agree who will finish it and by when
 
-<!-- notes: Timing module 4, closing 99-101 min, together with the preceding slide. Confirm ownership of any pending Lab 3 image build and retained image storage. Do not claim resources are removed without checking. Participants must not delete shared runner groups, networks or images. If cleanup takes longer, prioritize safe shutdown and owner handoff over feedback activities. Docs: hol/10-Cleanup.md. -->
+<!-- notes: Timing module 4, closing 99-101 min, together with the preceding slide. Confirm ownership of any pending Lab 3 image build and retained image storage. Do not claim resources are removed without checking. Participants must not delete shared runner groups, networks or images. If cleanup takes longer, prioritize safe shutdown and owner handoff over feedback activities. Docs: hol/day-2/10-Cleanup.md. -->
 
 ---
 

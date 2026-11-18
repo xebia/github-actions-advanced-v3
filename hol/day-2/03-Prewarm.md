@@ -22,7 +22,7 @@ Read GitHub's [custom image setup](https://docs.github.com/en/actions/how-tos/ma
 
 1. Confirm that custom images are enabled for the organization or enterprise, and that you are an owner, CI/CD Admin, or have the required custom-image and runner-group permissions. Check the supported platform and region, the runner-group policy, who pays for the runners, and how long images are kept.
 2. Create a larger runner for image generation on Linux x64, enable **Enable this runner to generate custom images**, and put it in a dedicated runner group restricted to this repository. Public repositories should not have access to an image-generation runner, because any code that runs there ends up in the image.
-3. Copy the [`03-build-prewarm.yml` starter](../examples/workflows/03-build-prewarm.yml) to `.github/workflows/03-build-prewarm.yml`. Set `runs-on` to your builder runner label and choose your own `snapshot.image-name`. Keep `version: 1.*`.
+3. Copy the [`03-build-prewarm.yml` starter](../../examples/workflows/03-build-prewarm.yml) to `.github/workflows/03-build-prewarm.yml`. Set `runs-on` to your builder runner label and choose your own `snapshot.image-name`. Keep `version: 1.*`.
 
    Complete the npm cache TODO: download `picocolors@1.1.1` into npm's download cache and list its entry to confirm it is present. Do not install it into a project or save `node_modules`. [npm cache commands](https://docs.npmjs.com/cli/v11/commands/npm-cache/)
 
@@ -66,7 +66,7 @@ Your image can contain several kinds of saved content: npm downloads, installed 
 <details>
 <summary>Solution</summary>
 
-Compare your workflows with the [image builder](../solutions/workflows/03-build-prewarm.yml) and [consumer](../solutions/workflows/03-prewarm.yml). The builder prepares content to save in an image; the consumer runs on that image and checks what is already there.
+Compare your workflows with the [image builder](../../solutions/workflows/03-build-prewarm.yml) and [consumer](../../solutions/workflows/03-prewarm.yml). The builder prepares content to save in an image; the consumer runs on that image and checks what is already there.
 
 Use your own runner label and `snapshot.image-name`. The examples below show the npm and Docker steps and the offline check.
 

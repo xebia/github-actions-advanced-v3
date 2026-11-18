@@ -39,4 +39,4 @@ If it is still unavailable, ask the trainer to demonstrate the comparison. Agree
 
 ## Success
 
-You can name what was removed, what was intentionally retained, and who owns any outstanding cleanup. Return to the [course outline](../CLASS-OUTLINE.md).
+You can name what was removed, what was intentionally retained, and who owns any outstanding cleanup. Return to the [course outline](../../CLASS-OUTLINE.md).

@@ -18,7 +18,7 @@ Compare checks on each PR with checks on the combined changes in a merge queue. 
 
 ## Tasks
 
-1. Copy the [`05-stack-queue.yml` example](../examples/workflows/05-stack-queue.yml) into `.github/workflows`.
+1. Copy the [`05-stack-queue.yml` example](../../examples/workflows/05-stack-queue.yml) into `.github/workflows`.
 
    The `validate` job tests the app on every PR and merge-queue revision. Your task is to complete the `concurrency:` TODO at the top of the file. When you push a new commit to the **same PR**, the older run for that PR should be cancelled. Runs for another PR, and merge-queue runs, must not be cancelled. [Concurrency](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency), [`concurrency` syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#concurrency), [`github` context](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#github-context)
 
@@ -83,7 +83,7 @@ For the concurrency group, combine `github.event_name` with `github.event.pull_r
 <details>
 <summary>Solution</summary>
 
-You can compare your workflow with the [completed example](../solutions/workflows/05-stack-queue.yml).
+You can compare your workflow with the [completed example](../../solutions/workflows/05-stack-queue.yml).
 
 ### Why the top PR depends on the bottom PR
 

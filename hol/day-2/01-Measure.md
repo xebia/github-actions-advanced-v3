@@ -55,7 +55,7 @@ Do not count waiting for a runner as test execution, and do not assume the longe
 <details>
 <summary>Solution / interpretation</summary>
 
-The [baseline workflow](../examples/workflows/01-baseline.yml) gives you something to measure before changing it. There is no single correct optimization; it depends on where your run spends its time.
+The [baseline workflow](../../examples/workflows/01-baseline.yml) gives you something to measure before changing it. There is no single correct optimization; it depends on where your run spends its time.
 
 If dependency downloads take most of the setup time, caching those downloads is worth testing. If independent checks take most of the execution time, try running them in parallel. If the run spends most of its time waiting for a runner, investigate available capacity first.
 
